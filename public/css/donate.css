@@ -1,0 +1,528 @@
+:root {
+  --black: #2c2c2c;
+  --very-black: #1c1c1c;
+  --white: #fff;
+  --light-grey: #f4f4f4;
+  --very-light-grey: rgba(200, 200, 200, 0.7);
+  --action-color: #4356ff;
+  --result-holder-bkg: #444;
+  --result-holder-color: #eee;
+  --base-font-size: 1rem;
+  --border-radius: 0.5rem;
+  --theme-bkg: rgba(67, 84, 255, 0.1);
+}
+
+.darkmode {
+  --black: #ffffff;
+  --very-black: #f0f0f0;
+  --white: #1a1a1a;
+  --light-grey: #2d2d2d;
+  --very-light-grey: rgba(80, 80, 80, 0.3);
+  --action-color: #6366f1;
+  --result-holder-bkg: #333;
+  --result-holder-color: #eee;
+  --theme-bkg: rgba(255,255,255,0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fff;
+  color: #2c2c2c;
+  font-family: "Quicksand", "Poppins", sans-serif;
+  font-size: 1rem;
+  height: 100%;
+  width: 100%;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* THEME TOGGLE */
+.theme__choice__container {
+        padding: 1.5rem;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: end;
+        width: 100%;
+        position: fixed;
+        z-index: 999;
+}
+
+.theme__choice {
+  border: none;
+  outline: none;
+  background-color: rgba(67, 84, 255, 0.1);
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.theme__choice:hover {
+  transform: scale(1.1);
+}
+
+body.darkmode .menu__btn img,
+body.darkmode .close__btn img {
+  filter: invert(1);
+}
+
+/* NAVIGATION */
+.menu__links__section {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1001;
+  padding: 2rem 0.8rem 2rem 0.6rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0.3rem;
+  background-color: rgb(200, 200, 200);
+}
+
+body.darkmode .menu__links__section {
+        background-color: #2c2c2c;
+        border: 1px solid #eee;
+        border-left: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0.3rem;
+}
+
+.menu__links__section > a {
+  text-decoration: underline;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #2c2c2c;
+  display: block;
+  text-align: left;
+  padding: 0;
+  transition: color 0.3s ease;
+  margin: 5px auto;
+  padding: 5px;
+}
+
+.menu__links__section > a:hover {
+  color: #4356ff;
+}
+
+body.darkmode .menu__links__section > a {
+        color: #eee;
+}
+
+.close__btn {
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  display: grid;
+  margin: 0 auto 1rem auto;
+  place-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #eee;
+}
+
+body.darkmode .close__btn {
+  background-color: #1c1c1c;
+}
+
+.nav__container {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  color: #2c2c2c;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+body.darkmode .nav__container {
+        background-color: #2c2c2c;
+        box-shadow: 0 2px 5px rgba(210, 210, 210, 0.3);
+}
+
+.nav {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 2.5rem 0.4rem;
+  width: 85%;
+  position: relative;
+}
+
+.nav__div1 > button {
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav__div1 > button > img {
+  width: clamp(2.05rem, calc(2.05rem + 0.22vw), 2.2rem);
+  height: auto;
+  transition: filter 0.3s ease;
+}
+
+.nav__div2 {
+	text-align: center;
+}
+
+.nav__div2 > a {
+  color: #1c1c1c;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+body.darkmode .nav__div2 a {
+        color: #fff;
+}
+
+.nav__div3 > button {
+  color: #4356ff;
+}
+
+.nav__div3 > a > img {
+  width: clamp(2.05rem, calc(2.05rem + 0.22vw), 2.2rem);
+  height: auto;
+  transition: filter 0.3s ease;
+}
+
+/** DONATE DONATE DONATE DONATE DONATE DONATE DONATE */
+:root {
+            --primary: #4356ff;
+            --dark: #2c2c2c;
+            --light: #ffffff;
+            --gold: #ffdd00;
+            --coffee: #8B4513;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+            font-family: "Quicksand", "Poppins", sans-serif;
+        }
+
+        body.darkmode {
+            background: linear-gradient(135deg, #1c1c1c 0%, #1a1a1a 100%);
+            color: var(--light);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg,  var(--gold), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body.darkmode .header h1 {
+            background: linear-gradient(135deg, var(--gold), #ffa726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            color: var(--light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        body.darkmode .header p {
+            color: #e0e0e0;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .description {
+            padding-right: 30px;
+        }
+
+        .description h2 {
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+        }
+
+        body.darkmode .description h2 {
+            color: var(--gold);
+        }
+
+        .description p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--light);
+            line-height: 1.8;
+        }
+
+        body.darkmode .description p {
+            color: #e0e0e0;
+        }
+
+        .impact-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .impact-list li {
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+            color: var(--light);
+            font-size: 1.1rem;
+        }
+
+        body.darkmode .impact-list li {
+            color: #e0e0e0;
+        }
+
+        .impact-list li:before {
+            content: url('/icons/starsGemini.svg');
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+/* Donate Card */
+        .donate-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            border: 3px solid var(--gold);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(255, 221, 0, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.darkmode .donate-card {
+            background: rgba(42, 42, 42, 0.95);
+            border-color: var(--gold);
+        }
+
+        .donate-card:hover {
+            transform: translateY(-10px);
+            box-shadow:
+                0 30px 60px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(255, 221, 0, 0.4);
+        }
+
+        .coffee-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .donate-card h3 {
+            color: var(--coffee);
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        body.darkmode .donate-card h3 {
+            color: var(--gold);
+        }
+
+        .donate-card p {
+            color: #666;
+            margin-bottom: 35px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        body.darkmode .donate-card p {
+            color: #ccc;
+        }
+
+        .donate-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--coffee), #d2691e);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(139, 69, 19, 0.4);
+            border: 2px solid transparent;
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.6);
+            background: linear-gradient(135deg, #d2691e, var(--coffee));
+        }
+
+        /* Supporters Section */
+        .supporters {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        body.darkmode .supporters {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .supporters h2 {
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        .supporters p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .donate-card {
+            animation: float 6s ease-in-out infinite;
+        }
+.footer__div {
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        background-color: #fff;
+}
+
+body.darkmode .footer__div {
+        background-color: #1c1c1c;
+}
+
+.hr__footer {
+  width: 85%;
+  border: none;
+  height: 1.5px;
+  margin: 0 auto;
+  background-color: #222;
+}
+
+body.darkmode .hr__footer {
+  background-color: #eee;
+}
+
+.footer {
+  text-align: center;
+  margin: 2rem 0;
+  color: #2c2c2c;
+  transition: color 0.3s ease;
+}
+
+.footer p {
+  font-size: 0.9rem;
+}
+
+body.darkmode .footer p {
+  color: #eee;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+            .nav {
+            	padding: 1.5rem 0.4rem;
+            }
+            .nav__div2 a {
+            	font-size: 1.3rem;
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .container {
+                padding: 60px 15px 40px 15px;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .description {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .donate-card {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav {
+            	padding: 1rem 0;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .donate-btn {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+        }

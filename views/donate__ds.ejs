@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Support SweetDreams AI </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4356ff;
+            --dark: #2c2c2c;
+            --light: #ffffff;
+            --gold: #ffdd00;
+            --coffee: #8B4513;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+            font-family: "Quicksand", "Poppins", sans-serif;
+        }
+
+        body.darkmode {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: var(--light);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--gold), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body.darkmode .header h1 {
+            background: linear-gradient(135deg, var(--gold), #ffa726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            color: var(--light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        body.darkmode .header p {
+            color: #e0e0e0;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .description {
+            padding-right: 30px;
+        }
+
+        .description h2 {
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+        }
+
+        body.darkmode .description h2 {
+            color: var(--gold);
+        }
+
+        .description p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--light);
+            line-height: 1.8;
+        }
+
+        body.darkmode .description p {
+            color: #e0e0e0;
+        }
+
+        .impact-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .impact-list li {
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+            color: var(--light);
+            font-size: 1.1rem;
+        }
+
+        body.darkmode .impact-list li {
+            color: #e0e0e0;
+        }
+
+        .impact-list li:before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        /* Donate Card */
+        .donate-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            border: 3px solid var(--gold);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(255, 221, 0, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.darkmode .donate-card {
+            background: rgba(42, 42, 42, 0.95);
+            border-color: var(--gold);
+        }
+
+        .donate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(255, 221, 0, 0.4);
+        }
+
+        .coffee-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .donate-card h3 {
+            color: var(--coffee);
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        body.darkmode .donate-card h3 {
+            color: var(--gold);
+        }
+
+        .donate-card p {
+            color: #666;
+            margin-bottom: 35px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        body.darkmode .donate-card p {
+            color: #ccc;
+        }
+
+        .donate-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--coffee), #d2691e);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(139, 69, 19, 0.4);
+            border: 2px solid transparent;
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.6);
+            background: linear-gradient(135deg, #d2691e, var(--coffee));
+        }
+
+        /* Supporters Section */
+        .supporters {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        body.darkmode .supporters {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .supporters h2 {
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        .supporters p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-toggle img {
+            width: 24px;
+            height: 24px;
+            filter: invert(1);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .donate-card {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .container {
+                padding: 40px 15px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .description {
+                padding-right: 0;
+                text-align: center;
+            }
+            
+            .donate-card {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .donate-btn {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle">
+        <img src="./icons/moon.svg" alt="Toggle theme" id="themeIcon">
+    </button>
+
+    <div class="container">
+        <div class="header">
+            <h1>Keep the Magic Brewing</h1>
+            <p>Your support helps us create more magical bedtime stories for children around the world</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="description">
+                <h2>Why Support SweetDreams AI?</h2>
+                <p>SweetDreams AI was created with one simple mission: to make bedtime magical for every child. While our service is completely free, maintaining and improving it requires resources.</p>
+                
+                <p>Your donation helps us:</p>
+                <ul class="impact-list">
+                    <li>Keep the service free for families who can't afford paid alternatives</li>
+                    <li>Develop new features and story types</li>
+                    <li>Improve AI quality and response times</li>
+                    <li>Cover server costs and API expenses</li>
+                    <li>Create more magical moments at bedtime</li>
+                </ul>
+                
+                <p>Every contribution, no matter how small, makes a huge difference in keeping the dream alive. Thank you for considering supporting our mission! 💫</p>
+            </div>
+            
+            <div class="donate-card">
+                <span class="coffee-icon">☕</span>
+                <h3>Buy Me a Coffee</h3>
+                <p>Support SweetDreams AI with a small donation. Every coffee helps create more magical stories and keeps the dream alive for children everywhere!</p>
+                <a href="https://buymeacoffee.com/devyay" class="donate-btn" target="_blank">
+                    ☕ Donate Now
+                </a>
+            </div>
+        </div>
+
+        <div class="supporters">
+            <h2>Join Our Community of Dream Weavers</h2>
+            <p>You're not just buying a coffee - you're becoming part of a magical community that believes in sweet dreams for all. Your support inspires us to keep building, creating, and spreading bedtime magic across the world.</p>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('darkmode');
+            if (document.body.classList.contains('darkmode')) {
+                themeIcon.src = "./icons/sun.svg";
+            } else {
+                themeIcon.src = "./icons/moon.svg";
+            }
+        });
+
+        // Add floating particles for extra magic
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.innerHTML = '✨';
+            particle.style.position = 'fixed';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.top = '-50px';
+            particle.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            particle.style.opacity = Math.random() * 0.5 + 0.3;
+            particle.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 5000);
+        }
+
+        // Add falling particles occasionally
+        setInterval(createParticle, 1000);
+
+        // Add CSS for falling animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+* {
+	box-sizing: border-box;;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: #f4f4f4;
+	color: #1c1c1c;
+}
+
+body.darkmode {
+	background-color: #1c1c1c;
+	color: #f4f4f4;
+}
+
+.div__404 {
+	display: grid;
+	place-content: center;
+	margin: 1.5rem auto;
+}
+
+.div__404 a {
+	cursor: pointer;
+}
+
+.div__404 a:active {
+	color: #4356ff;
+}
+
+.div__404 a:visited {
+	color: #4052ee;
+}
+
+body.darkmode .div__404 a:active {
+	color: #4356ff;
+}

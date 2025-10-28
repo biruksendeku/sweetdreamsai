@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title> Updates - Page </title>
+  <link rel="stylesheet" href="/css/updates.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="nav__container">
+    <section class="menu__links__section" id="menu__links__section">
+      <button class="close__btn" id="close__btn">
+        <img src="/icons/close.svg" alt="Close"/>
+      </button>
+
+      <a href="/">&bull; Home </a>
+      <a href="/ideas">&bull; Ideas&nbsp;/Inspirations </a>
+      <a href="/tips">&bull; Tips and Tricks </a>
+      <a href="/updates">&bull; Updates </a>
+      <a href="/faq">&bull; FAQ </a>
+    </section>
+    <nav class="nav">
+      <div class="nav__divs nav__div1">
+        <button id="menu__btn" class="menu__btn">
+          <img src="/icons/menu.svg" alt="Menu" />
+        </button>
+      </div>
+
+      <div class="nav__divs nav__div2">
+        <a href="/"> SweetDreams AI </a>
+      </div>
+
+      <div class="nav__divs nav__div3">
+        <a href="/donate">
+          <img src="/icons/donate.svg" alt="Donate" />
+        </a>
+      </div>
+    </nav>
+  </div>
+
+        <!-- THEME LOGIC -->
+  <div class="theme__choice__container">
+        <button id="theme__choice" class="theme__choice">
+                <img id="light__theme" style="display: none;" width="40px" height="auto" src="/icons/sun.svg" alt="☀️" />
+                <img id="dark__theme" width="40px" height="auto" src="/icons/moon.svg" alt="🌙" />
+        </button>
+  </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="version-badge">Latest Version: v6.0</div>
+            <h1>What's New in SweetDreams AI</h1>
+            <p>See how we're making bedtime stories more magical with every update</p>
+        </div>
+
+        <div class="updates-timeline">
+            <!-- Current Version -->
+            <div class="update-card current">
+                <div class="version-number"><b>v6.0 - Inspiration Everywhere</b></div>
+                <h3>Never Run Out of Story Ideas!</h3>
+                <p>Our biggest update yet focuses on sparking your creativity whenever you need it.</p>
+
+                <ul class="feature-list">
+                    <li><strong>Smart Prompt Placeholders:</strong> Random story ideas now automatically appear in the story generator</li>
+                    <li><strong>Story Ideas Page:</strong> A whole new section dedicated to creative story starters</li>
+                    <li><strong>One-Click Inspiration:</strong> Love a placeholder idea? It's yours with one click</li>
+                    <li><strong>Expanded Idea Library:</strong> Dozens of new story concepts across multiple categories</li>
+                </ul>
+
+                <p><strong>Pro Tip:</strong> Can't think of an idea? Just press generate with the placeholder text - it works perfectly!</p>
+            </div>
+
+            <!-- Previous Versions -->
+            <div class="update-card">
+                <div class="version-number">v5.2</div>
+                <h3>Enhanced Story Quality</h3>
+                <p>Improved AI responses for more coherent and magical storytelling.</p>
+                <ul class="feature-list">
+                    <li>Better character consistency throughout stories</li>
+                    <li>More descriptive and engaging language</li>
+                    <li>Improved story structure and pacing</li>
+                </ul>
+            </div>
+
+            <div class="update-card">
+                <div class="version-number">v5.0</div>
+                <h3>Mobile Magic Update</h3>
+                <p>Complete mobile optimization for bedtime stories anywhere.</p>
+                <ul class="feature-list">
+                    <li>Fully responsive design on all devices</li>
+                    <li>Touch-friendly interface improvements</li>
+                    <li>Faster loading times on mobile networks</li>
+                </ul>
+            </div>
+
+            <div class="update-card">
+                <div class="version-number">v4.1</div>
+                <h3>Theme & Category Expansion</h3>
+                <p>More story types and genres to explore.</p>
+                <ul class="feature-list">
+                    <li>Added seasonal and holiday themes</li>
+                    <li>New animal adventure category</li>
+                    <li>Space exploration stories</li>
+                </ul>
+            </div>
+
+            <div class="update-card">
+                <div class="version-number">v4.0</div>
+                <h3>The Foundation</h3>
+                <p>Where the magic began - our initial launch!</p>
+                <ul class="feature-list">
+                    <li>Basic story generation with Gemini AI</li>
+                    <li>Simple prompt-based interface</li>
+                    <li>Core bedtime story functionality</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <hr class="hr__footer">
+  <footer class="footer">
+    <p> &copy;All Right Reserved. <br>
+    SweetDreams AI  &bull;  <%= new Date().getFullYear() %> </p>
+  </footer>
+</body>
+<script defer src="/js/updates.js"></script>
+</html>

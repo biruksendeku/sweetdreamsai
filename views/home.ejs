@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SweetDreams AI - Magical Bedtime Stories </title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="nav__container">
+        <section class="menu__links__section" id="menu__links__section">
+            <button class="close__btn" id="close__btn">
+                <img src="/icons/close.svg" alt="Close" />
+            </button>
+
+            <a href="/">&bull; Home </a>
+            <a href="/ideas">&bull; Ideas&nbsp;/Inspirations </a>
+            <a href="/tips">&bull; Tips and Tricks </a>
+            <a href="/updates">&bull; Updates </a>
+            <a href="/faq">&bull; FAQ </a>
+        </section>
+        <nav class="nav">
+            <div class="nav__divs nav__div1">
+                <button id="menu__btn" class="menu__btn">
+                    <img src="/icons/menu.svg" alt="Menu" />
+                </button>
+            </div>
+
+            <div class="nav__divs nav__div2">
+                <a href="/"> SweetDreams AI </a>
+            </div>
+
+            <div class="nav__divs nav__div3">
+                <a href="/donate">
+                    <img src="/icons/donate.svg" alt="Donate" />
+                </a>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- THEME LOGIC -->
+        <div class="theme__choice__container">
+        	<button id="theme__choice" class="theme__choice">
+        		<img src="/icons/sun.svg" id="light__theme" style="display: none;" width="40px" height="auto" alt="☀️" />
+        		<img id="dark__theme" width="40px" height="auto" src="/icons/moon.svg" alt="🌙" />
+        	</button>
+        </div>
+	
+    <!-- Hero Section with Form -->
+    <section class="hero">
+            <div class="hero-content">
+                <h1>Where Sweet Dreams Begin</h1>
+                <p>Create magical, personalized bedtime stories in seconds with AI. Free forever, magical always.
+                </p>
+
+                <form action="/story" method="POST" class="story-form" id="storyForm">
+                    <div class="form-group">
+                        <textarea
+                            name="prompt"
+                            class="story-prompt"
+                            id="storyPrompt"
+                            placeholder="Describe your story idea..."
+                            required
+                            autocomplete
+                            maxlength="100"
+                            minlength="5"
+                        ></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="useIdeaBtn">
+                            Use this Idea
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Generate Story
+                        </button>
+                    </div>
+                </form>
+            </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title"> About SweetDreams AI </h2>
+                <p class="about-text">
+                    Welcome to SweetDreams AI, your free tool for creating magical bedtime stories in seconds.
+                    We believe every night should end with a sweet dream. That's why we built a simple, free service
+                    that uses advanced AI technology, powered by Google's Gemini API, to generate unique and calming
+                    bedtime stories for children of all ages.
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                        	<img src="/icons/rocket.svg" width="40px" height="auto" alt="🚀">
+                        </div>
+                        <h3>Instant Stories</h3>
+                        <p>Generate unique bedtime stories in seconds with just a simple prompt</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                        	<img src="/icons/target.svg" width="40px" height="auto" alt="🎯">
+                        </div>
+                        <h3>AI Powered</h3>
+                        <p>Powered by Google's Gemini API for creative, engaging storytelling</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                        	<img src="/icons/revolvingStars.svg" width="40px" height="auto" alt="💫">
+                        </div>
+                        <h3>Always Free</h3>
+                        <p>No subscriptions, no hidden fees - just magical stories forever</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                        	<img src="/icons/sleepReady.svg" width="40px" height="auto" alt="🌙">
+                        </div>
+                        <h3>Sleep Ready</h3>
+                        <p>Gentle, calming stories designed for peaceful bedtime routines</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="hr__footer">
+    <footer class="footer">
+        <p>&copy;All Right Reserved. <br>
+        SweetDreams AI  &bull;  <%= new Date().getFullYear() %> </p>
+    </footer>
+
+ <script defer src="/js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title> Tips and Tricks - Page </title>
+  <link rel="stylesheet" href="/css/tips.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="nav__container">
+    <section class="menu__links__section" id="menu__links__section">
+      <button class="close__btn" id="close__btn">
+        <img src="/icons/close.svg" alt="Close"/>
+      </button>
+
+      <a href="/">&bull; Home </a>
+      <a href="/ideas">&bull; Ideas&nbsp;/Inspirations </a>
+      <a href="/tips">&bull; Tips and Tricks </a>
+      <a href="/updates">&bull; Updates </a>
+      <a href="/faq">&bull; FAQ </a>
+    </section>
+    <nav class="nav">
+      <div class="nav__divs nav__div1">
+        <button id="menu__btn" class="menu__btn">
+          <img src="/icons/menu.svg" alt="Menu" />
+        </button>
+      </div>
+
+      <div class="nav__divs nav__div2">
+        <a href="/"> SweetDreams AI </a>
+      </div>
+
+      <div class="nav__divs nav__div3">
+        <a href="/donate">
+          <img src="./icons/donate.svg" alt="Donate" />
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- THEME LOGIC -->
+      <div class="theme__choice__container">
+          <button id="theme__choice" class="theme__choice">
+                  <img id="light__theme" style="display: none;" width="40px" height="auto" src="/icons/sun.svg" alt="☀️" />
+                  <img id="dark__theme" width="40px" height="auto" src="/icons/moon.svg" alt="🌙" />
+          </button>
+      </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Master the Art of Storytelling</h1>
+            <p>Learn how to create the most magical and engaging bedtime stories with these pro tips</p>
+        </div>
+
+        <div class="tips-grid">
+            <div class="tip-card">
+                <h3>&bull; Be Specific & Detailed</h3>
+                <p>Instead of generic characters, give them personality traits, hobbies, or quirks.</p>
+                <div class="example">
+                    <strong>Instead of:</strong> "a dragon"<br>
+                    <strong>Try:</strong> "a tiny dragon who collects shiny rocks and sneezes glitter"
+                </div>
+            </div>
+
+            <div class="tip-card">
+                <h3>&bull; Add Magical Elements</h3>
+                <p>Incorporate fantasy elements that spark imagination and wonder.</p>
+                <div class="example">
+                    <strong>Examples:</strong> talking animals, enchanted forests, floating islands, whispering trees, starlight rivers
+                </div>
+            </div>
+
+            <div class="tip-card">
+                <h3>&bull; Engage All Senses</h3>
+                <p>Describe not just what characters see, but what they hear, smell, and feel.</p>
+                <div class="example">
+                    "The cave smelled of damp earth and ancient secrets, with crystals that hummed a gentle lullaby"
+                </div>
+            </div>
+
+            <div class="tip-card">
+                <h3>&bull; Create Gentle Conflict</h3>
+                <p>Add mild challenges that are easily resolved for satisfying endings.</p>
+                <div class="example">
+                    <strong>Instead of:</strong> "a scary monster"<br>
+                    <strong>Try:</strong> "a lost path, a missing object, a misunderstood character, or a simple puzzle"
+                </div>
+            </div>
+
+            <div class="tip-card">
+                <h3>&bull; Use Our Prompt Ideas</h3>
+                <p>Don't forget! We've built-in prompt suggestions in the main story generator.</p>
+                <div class="example">
+                    <strong>New in v6:</strong> Random story ideas automatically appear as placeholders. Can't think of anything? Just use what's already there!
+                </div>
+            </div>
+
+            <div class="tip-card">
+                <h3>&bull; Visit Story Ideas Page</h3>
+                <p>Stuck for inspiration? We've curated an entire page of creative story starters.</p>
+                <div class="example">
+                    <strong>Pro Tip:</strong> Bookmark the Story Ideas page and mix concepts from different categories for truly unique tales!
+                </div>
+            </div>
+        </div>
+
+        <div class="pro-section">
+            <h2>&bull; Advanced Storytelling Secrets</h2>
+            <div class="tips-grid">
+                <div class="tip-card" style="background: #3a3a3a; border-left-color: #fff;">
+                    <h3>&bull; Create Character Arcs</h3>
+                    <p id="guide__para1">Even simple stories benefit from characters who learn or grow.</p>
+                    <div class="example" style="background: #2c2c2c;">
+                        <p>"A shy fox learns to speak up", "A impatient rabbit discovers the joy of waiting"</p>
+                    </div>
+                </div>
+                <div class="tip-card" style="background: #3a3a3a; border-left-color: #fff;">
+                    <h3>&bull; Build to Peaceful Endings</h3>
+                    <p id="guide__para2">Always conclude with calm, resolution, and sleep-ready vibes.</p>
+                    <div class="example" style="background: #2c2c2c;">
+                        <p>"And as the stars twinkled above, they all drifted into peaceful dreams..."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <hr class="hr__footer">
+  <footer class="footer">
+    &copy;All Right Reserved. <br>
+    SweetDreams AI  &bull;  <%= new Date().getFullYear() %>
+  </footer>
+
+</body>
+<script defer src="/js/tips.js"></script>
+</html>

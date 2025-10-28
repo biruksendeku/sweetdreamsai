@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SweetDreams AI</title>
+    <style>
+        :root {
+            --home-background: #fff;
+            --home-color: #2c2c2c;
+            --story-background: #f4f4f4;
+            --story-color: #1c1c1c;
+            --about-background: #fff;
+            --about-color: #2c2c2c;
+            --blog-background: #f4f4f4;
+            --blog-color: #1c1c1c;
+            --donate-background: #fff;
+            --donate-color: #2c2c2c;
+            --text-color: #2c2c2c;
+            --action-color: #4356ff;
+            --nav-and-footer-color: #000;
+            --white-text-color: #fff;
+            --nav-and-footer-background: rgba(0, 0, 0, 0.1);
+            --input-text-background: #e9e9e9;
+            --border-radius: 0.5rem;
+            --normal-size: 1rem;
+            --inner-links: #2c2c2c;
+            --active-background: rgba(100, 100, 250, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            height: 100%;
+        }
+        
+        body {
+            min-height: 100vh;
+            background-color: var(--home-background);
+            color: var(--text-color);
+            font-family: 'Poppins', 'Arial', Sans-Serif;
+            position: relative;
+            padding-bottom: 100px;
+        }
+		.nav {
+            position: sticky;
+            top: 0;
+            display: flex;
+            flex: 1;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: space-between;
+            height: 6.25rem;
+            width: 100%;
+            background-color: var(--nav-and-footer-background);
+            backdrop-filter: blur(0.4375rem);
+            z-index: 100;
+            padding: 0.5rem;
+        }
+        .nav__link__1 {
+            display: grid;
+            place-content: center;
+        }
+        .nav__link__2 {
+            display: flex;
+            justify-content: space-evenly;
+            flex-flow: row nowrap;
+            gap: 0.5rem;
+        }
+        .all__links {
+            color: var(--nav-and-footer-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: transparent;
+            box-shadow: 0 0.3125rem 1.0rem #000;
+            border-radius: calc(var(--border-radius) + 0.4375rem);
+            padding: 0.5rem 1.0rem;
+            text-align: center;
+        }
+        .logo__link {
+            background-color: var(--action-color);
+            color: var(--white-text-color);
+        }
+        .all__links:hover, .logo__link:hover {
+            transform: scale(1.1);
+            transition: all 0.3s ease;
+        }
+        .donate__special__link {
+            background-color: var(--action-color);
+            color: var(--white-text-color);
+        }
+        .footer {
+            display: grid;
+            place-content: center;
+            background-color: var(--nav-and-footer-background);
+            color: var(--nav-and-footer-color);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 1.0rem 0;
+        }
+        .push__footer {
+            margin: 4rem 0;
+        }
+        .pages {
+            width: 100%;
+            margin: 3.75rem 0;
+            padding: 1.5625rem 2.1875rem;
+            transform: translateY(1.5625rem);
+        }
+        .pages:hover {
+            transform: translateY(-1.5625rem);
+            transition: all 0.5s ease;
+        }
+        .pages:active {
+            background-color: var(--active-background);
+        }
+        .home {
+            background-color: var(--home-background);
+            color: var(--home-color);
+            margin-top: 0.625rem;
+            margin-bottom: 6.25rem;
+        }
+        #home {
+        	animation-name: flow;
+        	animation-duration: 2s;
+        	animation-timing-function: ease;
+        	animation-play-state: paused;
+        	animation-iteration-count: infinite;
+        }
+        @keyframes flow {
+        	from {
+        	background-color: #fff;
+        	}
+        	to {
+        		/*transform: translateY(15px);*/
+        		/*transition: all 1s ease;*/
+        		background-color: #00f;
+        	}
+        }
+        .story {
+            background-color: var(--story-background);
+            color: var(--story-color);
+        }
+        .about {
+            background-color: var(--about-background);
+            color: var(--about-color);
+        }
+        .blog {
+            background-color: var(--blog-background);
+            color: var(--blog-color);
+        }
+        .donate {
+            background-color: var(--donate-background);
+            color: var(--donate-color);
+        }
+        .title__msg {
+            text-align: center;
+            margin: 1.0rem 0;
+        }
+        .prompt__area {
+            outline: none;
+            border: none;
+            resize: none;
+            border-radius: var(--border-radius);
+            background-color: var(--input-text-background);
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #000;
+            display: block;
+            margin: auto;
+            padding: 0.625rem 1rem;
+            border-top: 0.0625rem dashed grey;
+            border-bottom: 0.0625rem dashed grey;
+        }
+        .prompt__area:hover {
+            box-shadow: 0.0625rem 0.1875rem 0.4375rem #444;
+            transition: all 0.5s ease;
+            border: none;
+        }
+        .prompt__area:blur {
+            text-shadow: 0 0.1875rem 0.5625rem #000;
+            transition: all 0.5s ease;
+        }
+        .prompt__submit__btn {
+            outline: 0;
+            border: 0.625rem solid #4356ff;
+            border-radius: var(--border-radius);
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            background-color: var(--action-color);
+            padding: 0 1.875rem;
+            display: block;
+            margin: 1rem auto;
+            text-align: center;
+        }
+        .prompt__submit__btn:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+        .title__last__msg {
+            text-align: center;
+            padding: 0.625rem 1.25rem;
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 1.875rem;
+        }
+        .title__last__msg__power__points {
+            font-weight: 750;
+        }
+        .home__description {
+            line-height: 1.5625rem;
+            font-weight: 400;
+            padding: 1.56rem;
+            text-align: center;
+            color: var(--text-color);
+            font-size: var(--normal-size);
+        }
+        /*??????????????????????????????????????????*/
+        /*??????????? Story page only ??????????????*/
+        /* ?????????????????????????????????????????*/
+        .before__story__msg {
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .offline__msg__manager {
+            font-size: 1.1rem;
+            color: tomato;
+            font-weight: 550;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .result__holder {
+            width: 95%;
+            height: 650px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-family: 'Popins', sans-serif;
+            font-weight: 500;
+            padding: 15px 25px;
+            text-align: center;
+            overflow: scroll;
+            margin: 25px auto;
+            box-shadow: grey 5px 5px 8px 3px;
+            background-color: #d3d3e9;
+            color: #1c1c1c;
+        }
+        /*??????????????????????????????????????????*/
+        /*??????????? About page only ??????????????*/
+        /* ?????????????????????????????????????????*/
+        .about-page-main-header {
+            text-align: left;
+            padding: 1.0rem;
+        }
+        .about-our-mission, .about-page-headers {
+            text-align: center;
+            margin: 1.0rem;
+        }
+        .about-our-mission-color1 {
+            color: #33dd33;
+        }
+        .about-our-mission-color2 {
+            color: gold;
+        }
+        .about-our-mission-color3 {
+            color: #ff7777;
+        }
+        .about-us-entry-msg {
+            text-align: center;
+            margin: 0.31rem;
+            padding: 0.5rem;
+        }
+        .about-page-paras-span1 {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        .about-logo-color {
+            color: var(--action-color);
+        }
+        .about-page-paras {
+            padding: 1rem;
+        }
+        .about-page-msg {
+            text-align: center;
+            padding: 1.56rem;
+        }
+        /*??????????????????????????????????????????*/
+        /*??????????? Blogs page only ??????????????*/
+        /* ?????????????????????????????????????????*/
+        .blog-page-msg-logo-color {
+            color: var(--action-color);
+        }
+        .blog-page-main-msg, .blog-page-quests, .blog-page-main-header {
+            text-align: left;
+            padding: 1rem;
+        }
+        .blog-page-header-msg {
+            text-align: center;
+        }
+        .blog-page-starting-msg {
+            text-align: left;
+            font-size: 1.3rem;
+            font-weight: 550;
+            padding: 0 1rem;
+        }
+        .blog-page-paras {
+            text-align: left;
+            padding: 0 1rem;
+        }
+        .blog-page-last-msg {
+            text-align: center;
+            font-style: italic;
+            padding: 1.56rem;
+        }
+        .sample__story {
+            font-size: 1.4rem;
+            font-weight: 400;
+            background-color: #d3d3e6;
+            color: #1c1c1c;
+            padding: 0.625rem 1.25rem;
+            border-radius: var(--border-radius);
+        }
+        /** 💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
+            💡💡💡💡💡 RESPONSIVE DESIGN 💡💡💡💡💡💡💡💡💡
+            💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
+        **/
+        @media only screen and (max-width: 768px) {
+            .nav {
+                height: 6rem;
+            }
+            .pages {
+                margin: 2rem 0;
+            }
+            .prompt__form {
+                padding: 0.625rem 1.875rem;
+            }
+            .pages:hover {
+                transform: translateY(-1.25rem);
+                transition: all 0.5s ease;
+            }
+        }
+        @media only screen and (max-width: 468px) {
+            .nav {
+                height: 4.0625rem;
+            }
+            .pages {
+                margin: 1.5rem 0;
+            }
+            .prompt__form {
+                padding: 0.5rem 1.25rem;
+            }
+            .pages:hover {
+                transform: translateY(-1.0rem);
+                transition: all 0.5s ease;
+            }
+        }
+        @media only screen and (max-width: 250px) {
+            .nav {
+                height: 3.4375rem;
+            }
+            .pages {
+                margin: 1rem 0;
+            }
+            .prompt__form {
+                padding: 0.375rem 1.0rem;
+            }
+            .pages:hover {
+                transform: translateY(-0.625rem);
+                transition: all 0.5s ease;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav__link__1">
+            <a href="/" class="logo__link all__links">SweetDreams AI</a>
+        </div>
+        <div class="nav__link__2">
+            <a href="/donate" class="donate__special__link all__links">Donate</a>
+            <a href="/tos" class="all__links">ToS</a>
+        </div>
+    </nav>
+
+    <!-- HOME SECTION -->
+    <section class="home pages" id="home">
+        <h1 class="title__msg">Make your own Sweet Bedtime Story.</h1>
+        <p class="home__description">
+            Create magical bedtime stories for your children with the power of AI. Just provide a prompt and watch as unique, enchanting tales come to life!
+        </p>
+
+        <form action="/" method="POST" class="prompt__form">
+            <textarea id="prompt__area__id" name="prompt" cols="40" rows="8" class="prompt__area" 
+                      placeholder="Your prompt here..." autofocus required><% if (typeof prompt !== 'undefined') { %><%= prompt %><% } %></textarea>
+            
+            <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+                <div class="error-messages" style="color: red; text-align: center; margin: 1rem 0;">
+                    <% errors.forEach(function(error) { %>
+                        <p><%= error.msg %></p>
+                    <% }); %>
+                </div>
+            <% } %>
+            
+            <button type="submit" id="prompt__submit__btn" class="prompt__submit__btn">
+                <% if (typeof generating !== 'undefined' && generating) { %>
+                    Generating...
+                <% } else { %>
+                    Generate
+                <% } %>
+            </button>
+        </form>
+        
+        <p class="title__last__msg">
+            "Where <span class="title__last__msg__power__points">Creativity</span> Blooms, 
+            <span class="title__last__msg__power__points">Imagination</span> Soars, and 
+            <span class="title__last__msg__power__points">Childhood</span> Shines."
+        </p>
+    </section>
+
+    <!-- STORY SECTION (Your awesome EJS logic + semantic HTML) -->
+    <section class="story pages" id="story">
+        <article class="before__story__msg">
+            "Unforgettable <b>Childhood</b> with Us, <br>
+            Have a great time."
+        </article>
+        
+        <% if (typeof story !== 'undefined' && story) { %>
+            <div class="offline__msg__manager" style="display: none;" id="offlineMessage">
+                <p class="offline__notice">📡 Offline Mode: Showing last story</p>
+            </div>
+            <div class="result__holder" id="result__holder">
+                <p class="result__paragraph">
+                    <%- story.text %>
+                </p>
+                <script>
+                    // Save to localStorage for offline access
+                    const storyData = {
+                        text: `<%= story.text.replace(/'/g, "\\'").replace(/\n/g, "\\n") %>`,
+                        timestamp: <%= story.timestamp %>
+                    };
+                    localStorage.setItem('lastStory', JSON.stringify(storyData));
+                </script>
+            </div>
+        <% } else if (typeof error !== 'undefined' && error) { %>
+            <div class="result__holder" id="result__holder">
+                <p class="error__message" style="color: red;">
+                    Error: <%- error %>
+                </p>
+            </div>
+        <% } else { %>
+            <div class="result__holder" id="result__holder">
+                <p class="result__paragraph">Your generated story will appear here...</p>
+            </div>
+        <% } %>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about pages" id="about">
+        <h1 class="about-page-main-header">About Us</h1>
+        <h3 class="about-our-mission">
+            <i>"Where <span class="about-our-mission-color1">Creativity</span> Blooms, 
+            <span class="about-our-mission-color2">Imagination</span> Soars, and 
+            <span class="about-our-mission-color3">Childhood</span> Shines."</i>
+        </h3>
+        <hr>
+        <p class="about-page-paras">
+            Hi there! We're the creators of <span class="about-page-paras-span1">SweetDreams AI.</span><br><br> 
+            A passion project born out of love for storytelling and the joy of bedtime moments.
+            As parents ourselves, we know how special (and sometimes exhausting!) storytime can be. 
+            We wanted to make it <b>easier, more magical, and infinitely creative</b>—so we built 
+            this tool to help families like yours.
+        </p>
+        
+        <!-- ... rest of your about content ... -->
+    </section>
+
+    <!-- BLOG SECTION -->
+    <section class="blog pages" id="blog">
+        <h1 class="blog-page-main-header">Blog page</h1>
+        <h2 class="blog-page-header-msg">
+            Welcome to <span class="blog-page-msg-logo-color">SweetDreams AI</span><br>
+            Where Magical Stories Come to Life!
+        </h2>
+        <br><hr><br>
+        
+        <!-- ... rest of your blog content ... -->
+    </section>
+
+    <div class="push__footer"></div>
+    
+    <footer class="footer">
+        <p style="text-align: center">
+            &copy; All Copyrights Reserved.
+        </p>
+        <p style="text-align: center">
+            DevYay - <%= new Date().getFullYear() %>.
+        </p>
+    </footer>
+
+    <script>
+        // Enhanced JavaScript with better error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const promptSubmitBtn = document.getElementById('prompt__submit__btn');
+            const promptArea = document.getElementById('prompt__area__id');
+            const form = document.querySelector('.prompt__form');
+
+            // Handle form submission
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    if (promptArea.value.length > 0) {
+                        promptSubmitBtn.textContent = 'Generating...';
+                        promptSubmitBtn.disabled = true;
+                    }
+                });
+            }
+
+            // Offline functionality
+            function checkOfflineStatus() {
+                const cached = JSON.parse(localStorage.getItem('lastStory'));
+                const resultHolder = document.getElementById('result__holder');
+                const offlineMessage = document.getElementById('offlineMessage');
+
+                if (!navigator.onLine && cached) {
+                    if (offlineMessage) offlineMessage.style.display = 'block';
+                    if (resultHolder && !resultHolder.innerHTML.includes('result__paragraph')) {
+                        resultHolder.innerHTML = `<p class="result__paragraph">${cached.text}</p>`;
+                    }
+                }
+            }
+
+            // Check on load
+            checkOfflineStatus();
+
+            // Listen for online/offline events
+            window.addEventListener('online', () => {
+                const offlineMessage = document.getElementById('offlineMessage');
+                if (offlineMessage) offlineMessage.style.display = 'none';
+            });
+
+            window.addEventListener('offline', checkOfflineStatus);
+
+            // Auto-focus on prompt area
+            if (promptArea && promptArea.value === '') {
+                promptArea.focus();
+            }
+        });
+        const home = document.gerElementById('home');
+        document.addEventListener('DOMContentLoaded', () => {
+        	home.style.animationPlayState = 'running';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> SweetDreams AI </title>
+    <style>
+:root {
+        --home-background: #fff;
+        --home-color: #2c2c2c;
+
+        --about-background: #f4f4f4;
+        --about-color: #1c1c1c;
+
+        --blog-background: #fff;
+        --blog-color: #2c2c2c;
+
+        --donate-background: #f4f4f4;
+        --donate-color: #1c1c1c;
+
+        --text-color: #2c2c2c;
+        --action-color: #4356ff;
+        --nav-and-footer-color: #000;
+        --nav-and-footer-background: rgba(0, 0, 0, 0.1);
+        --input-text-background: #e9e9e9;
+        --border-radius: 8px;
+        --normal-size: 1rem;
+        --inner-links: #2c2c2c;
+        --active-background: rgba(100, 100, 250, 0.2);
+    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            height: 100vh;
+            width: 100%;
+            display: table;
+        }
+        body {
+            height: 100%;
+            background-color: var(--home-background);
+            color: var(--text-color);
+            font-family: 'Poppins', 'Arial', Sans-Serif;
+            position: relative;
+            display: table-cell;
+            width: 100%;
+        }
+        .nav {
+            position: sticky;
+            top: 0;
+            display: flex;
+            flex: 1;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: space-between;
+            height: 100px;
+            width: 100%;
+            background-color: var(--nav-and-footer-background);
+            backdrop-filter: blur(7px);
+            z-index: 100;
+            padding: 8px;
+        }
+        .nav__link__2 {
+            display: flex;
+            justify-content: space-evenly;
+            flex-flow: row nowrap;
+            gap: 8px;
+        }
+        .all__links {
+            color: var(--nav-and-footer-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: transparent;
+            box-shadow: 0 5px 15px #000;
+            border-radius: calc(var(--border-radius) + 7px);
+            padding: 8px 15px;
+            text-align: center;
+        }
+        .logo__link {
+            color: var(--action-color);
+        }
+        .all__links:hover, .logo__link:hover {
+            transform: scale(1.1);
+            transition: all 0.3s ease;
+        }
+        .footer {
+            display: grid;
+            place-content: center;
+            background-color: var(--nav-and-footer-background);
+            color: var(--nav-and-footer-color);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 15px 0;
+        }
+        .push__footer {
+            margin: 6rem 0;
+        }
+        .story__msg {
+            text-align: center;
+            margin: 25px;
+            font-style: italic;
+        }
+        .nav__color__logo {
+            color: var(--action-color);
+        }
+        .result__holder {
+            width: 95%;
+            height: 650px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            padding: 15px 25px;
+            text-align: center;
+            overflow: scroll;
+            margin: 25px auto;
+            box-shadow: grey 5px 5px 8px 3px;
+            background-color: #d3d3e9;
+            color: #1c1c1c;
+        }
+        .regenerate__link__holder {
+            background-color: #4356ff;
+            padding: 15px 25px;
+            border-radius: 4px;
+            width: 40%;
+            margin: 15px auto;
+            display: grid;
+            place-content: center;
+            border: 4px solid #4356ff;
+        }
+        .regenerate__link__holder:hover {
+            border: 4px solid tomato;
+            border-radius: 12px;
+            transition: all 0.5s ease;
+        }
+        .regenerate__link {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+        .offline__msg__manager { /** done **/
+            font-size: 1.1rem;
+            color: tomato;
+            font-weight: 550;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    </style>
+
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav__link__1">
+            <a href="/" class="logo__link all__links"> SweetDreams AI </a>
+        </div>
+
+        <div class="nav__link__2">
+            <a href="/donate" class="all__links"> Donate </a>
+            <a href="/tos" class="all__links"> ToS </a>
+        </div>
+    </nav>
+
+    <h2 class="story__msg">"Unforgettable Childhood with <span class="nav__color__logo">SweetDreams AI</span>, <br>
+        Have a great time."</h2>
+    <p class="offline__msg__manager"></p>
+
+    <div class="result__holder" id="result__holder">
+        <% if (story) {
+            %>
+            <p class="result__paragraph">
+                <%= story.text %> <!-- Access story text -->
+                </p>
+                <!-- Update the script section for better escaping -->
+                <script>
+                    const lastSaved = JSON.parse(localStorage.getItem('lastStory'));
+                    if (!lastSaved || <%= story.timestamp %> > lastSaved.timestamp) {
+                        localStorage.setItem('lastStory', JSON.stringify({
+                            text: `<%= story.text.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$/g, '\\$') %>`,
+                            timestamp: <%= story.timestamp %>
+                            }));
+                            }
+                        </script>
+                            <%
+                                } %>
+
+                                <% if (error) {
+                                    %> <p class = "error__message" style = "color: red;" >
+                                        Error: <%= error %>
+                                        </p>
+                                        <%
+                                            } %>
+                                        </div>
+                                        <div class="regenerate__link__holder">
+                                            <a href="/" class="regenerate__link"> Regenerate? </a>
+                                        </div>
+                                        <main class="push__footer"></main>
+
+                                        <footer class="footer">
+                                            <p style="text-align: center">
+                                                &copy; All Copyrights Reserved.
+                                            </p>
+                                            <p style="text-align: center">
+                                                DevYay - <%= new Date().getFullYear() %>.
+                                                </p>
+                                            </footer>
+                                            <!-- Unified offline handler -->
+                                            <script>
+                                                window.addEventListener('load', () => {
+                                                    if (!navigator.onLine) {
+                                                        const cached = JSON.parse(localStorage.getItem('lastStory'));
+                                                        const resultHolder = document.getElementById('result__holder');
+
+                                                        if (cached) {
+                                                            document.querySelector('.offline__msg__manager').innerHTML = `
+                                                            <p class="offline__notice">📡 Offline Mode: Showing last story</p>
+                                                            `;
+                                                            resultHolder.innerHTML = `
+                                                            <p class="result__paragraph">${cached.text}</p>
+                                                            `;
+                                                        } else {
+                                                            resultHolder.innerHTML = `
+                                                            <p class="error__message" style="color: red;">
+                                                            You're offline and no stories are cached yet.
+                                                            </p>
+                                                            `;
+                                                        }
+                                                    }
+                                                });
+                                            </script>
+                                        </body>
+                                    </html>
