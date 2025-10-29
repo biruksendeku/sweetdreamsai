@@ -121,11 +121,6 @@
         }
 
         .story-content p:first-child::first-letter {
-            font-size: 4rem;
-            font-weight: bold;
-            float: left;
-            line-height: 1;
-            margin-right: 0.5rem;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
