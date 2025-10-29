@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <body>
 
   <div class="nav__container">
@@ -16,7 +17,7 @@
       </button>
 
       <a href="/">&bull; Home </a>
-      <a href="/ideas">&bull; Ideas&nbsp;/Inspirations </a>
+      <!--<a href="/ideas">&bull; Ideas&nbsp;/Inspirations </a>-->
       <a href="/tips">&bull; Tips and Tricks </a>
       <a href="/updates">&bull; Updates </a>
       <a href="/faq">&bull; FAQ </a>
@@ -106,7 +107,7 @@
                             const offlineMsg = document.querySelector('.offline__msg__manager');
 
                             if (cached && cached.text) {
-                                offlineMsg.innerHTML = `<p class="offline__notice"><img src="/icons/satellite.svg" width="30px" height="auto" alt="📡"> Offline Mode: Showing last story</p>`;
+                                offlineMsg.innerHTML = `<p class="offline__notice"> Offline Mode: Showing last story</p>`;
                                 // Only replace if we don't already have fresh content
                                 if (!<%= (story && story.text) ? 'true' : 'false' %>) {
                                     resultHolder.innerHTML = `<p class="result__paragraph">${cached.text}</p>`;
@@ -139,7 +140,7 @@
                         const cached = JSON.parse(localStorage.getItem('lastStory'));
                         if (cached && cached.text) {
                             document.querySelector('.offline__msg__manager').innerHTML = 
-                                `<p class="offline__notice"><img src="/icons/warning.svg" width="30px" height=="auto" alt="⚠️"> Showing last cached story due to error</p>`;
+                                `<p class="offline__notice"> Showing last cached story due to error</p>`;
                             document.getElementById('storyContent').innerHTML += 
                                 `<p class="result__paragraph">${cached.text}</p>`;
                         }

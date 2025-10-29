@@ -287,7 +287,7 @@ body.darkmode .header h1 {
 }
 
 .idea-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(67, 84, 255, 0.15);
 }
 

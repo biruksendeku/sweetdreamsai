@@ -364,6 +364,7 @@ body.darkmode .hr__footer {
   margin: 2rem 0;
   color: var(--black);
   transition: color 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .footer p {
@@ -474,17 +475,3 @@ body.darkmode .footer p {
         .story-card {
             animation: fadeInUp 0.8s ease-out;
          }
-.offline__notice {
-	display: flex;
-	flex-flow: row nowrap;
-	justify-content: center;
-	align-items: center;
-	gap: 5px;
-}
-.offline__notice {
-	display: flex;
-	flex-flow: row nowrap;
-	justify-content: center;
-	align-items: center;
-	gap: 5px;
-}

@@ -5,35 +5,26 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const { check, validationResult } = require('express-validator');
 const path = require('path');
-const fs = require('fs');
 require('dotenv').config();
-const morgan = require('morgan');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 const publicFolder = path.join(__dirname, 'public');
 const ai = new GoogleGenAI({});
-const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a'});
-//let resId;
 
 // APP SETTINGS SETUP
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-// TURN ON FOR PRODUCTION
-app.set('view cache', false);
+app.set('view cache', true);
 
 // MIDDLEWARE USE - SHORT SETUP
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(publicFolder, {
-	maxAge: '1y',
+	maxAge: '7d', // changed '1y' rather than using cache busting
 	etag: false
 }));
 app.use(express.static(publicFolder));
-app.use(morgan('tiny', {
-	skip: (req, res) => res.statusCode < 400,
-	stream: accessLogStream,
-}));
 
 // MIDDLEWARE SETUP - LONG VERSION
 app.use(
@@ -116,9 +107,6 @@ app.post('/story', [
             contents: storyPrompt,
         });
 
-        //console.log('Full result:', JSON.stringify(result, null, 2)); // Debug log
-        //resId = result.responseId;
-
         if (!result || !result.candidates || !result.candidates[0]) {
             throw new Error('Invalid response from AI service - no candidates');
         }
@@ -185,14 +173,6 @@ app.get('/tips', (req, res) => {
 app.get('/updates', (req, res) => {
 	try {
 		res.render('updates');
-	} catch(err) {
-		next(err);
-	}
-});
-
-app.get('/ideas', (req, res) => {
-	try {
-		res.render('ideas');
 	} catch(err) {
 		next(err);
 	}

@@ -215,6 +215,7 @@ body.darkmode .hr__footer {
   margin: 2rem 0;
   color: var(--black);
   transition: color 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .footer p {

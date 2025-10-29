@@ -2,7 +2,6 @@
 const menuBtn = document.getElementById("menu__btn");
 const closeBtn = document.getElementById("close__btn");
 const menuLinksSection = document.getElementById("menu__links__section");
-
 let menuTimeout;
 
 if (menuBtn && closeBtn && menuLinksSection) {
@@ -32,15 +31,21 @@ if (menuBtn && closeBtn && menuLinksSection) {
     });
 }
 
-// COPY FUNCTIONALITY - Fixed version
+// COPY FUNCTIONALITY
 function copyToClipboard(card) {
     const storyText = card.querySelector('h3').textContent + ' - ' + card.querySelector('p').textContent;
     const btn = card.querySelector('.copy-btn');
 
     // Add immediate visual feedback
+    const originalText = btn.textContent;
+    const originalBgColor = btn.style.backgroundColor;
+    const originalColor = btn.style.color;
+
     btn.textContent = 'Copying...';
     btn.style.backgroundColor = '#ffa500';
+    btn.style.color = 'white';
 
+    // Use the modern Clipboard API
     navigator.clipboard.writeText(storyText).then(() => {
         // Success state
         btn.textContent = 'Copied! ✅';
@@ -53,10 +58,10 @@ function copyToClipboard(card) {
 
         setTimeout(() => {
             // Reset button
-            btn.textContent = 'Copy Prompt';
-            btn.style.backgroundColor = '#4356ff';
-            btn.style.color = 'white';
-            
+            btn.textContent = originalText;
+            btn.style.backgroundColor = originalBgColor;
+            btn.style.color = originalColor;
+
             // Reset card effects
             card.style.boxShadow = '';
             card.style.transform = '';
@@ -69,20 +74,24 @@ function copyToClipboard(card) {
         btn.style.color = 'white';
 
         setTimeout(() => {
-            btn.textContent = 'Copy Prompt';
-            btn.style.backgroundColor = '#4356ff';
-            btn.style.color = 'white';
+            btn.textContent = originalText;
+            btn.style.backgroundColor = originalBgColor;
+            btn.style.color = originalColor;
         }, 2000);
     });
 }
 
 // Add click animation to cards
-document.querySelectorAll('.idea-card').forEach(card => {
-    card.addEventListener('click', function() {
-        this.style.transform = 'scale(0.98)';
-        setTimeout(() => {
-            this.style.transform = '';
-        }, 150);
+document.addEventListener('DOMContentLoaded', function() {
+    const ideaCards = document.querySelectorAll('.idea-card');
+    
+    ideaCards.forEach(card => {
+        card.addEventListener('click', function() {
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
     });
 });
 
