@@ -21,7 +21,7 @@
   --action-color: #6366f1;
   --result-holder-bkg: #333;
   --result-holder-color: #eee;
-  --theme-bkg: rgba(255,255,255,0.15);
+  --theme-bkg: rgba(255,255,255,0.1);
 }
 
 * {
@@ -47,7 +47,7 @@ body {
 
 /* THEME TOGGLE */
 .theme__choice__container {
-        padding: 1.5rem;
+        padding: 5px;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
@@ -69,7 +69,7 @@ body {
 }
 
 .theme__choice:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .darkmode .menu__btn img,
@@ -157,7 +157,7 @@ body.darkmode .nav__container {
   justify-content: space-between;
   gap: 1rem;
   margin: 0 auto;
-  padding: 2.5rem 0.4rem;
+  padding: 1.5rem 0.4rem;
   width: 85%;
   position: relative;
 }
@@ -183,8 +183,8 @@ body.darkmode .nav__container {
   color: var(--very-black);
   text-decoration: none;
   font-family: "Poppins", sans-serif;
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.3rem;
+  font-weight: 550;
   transition: color 0.3s ease;
 }
 
@@ -393,15 +393,9 @@ body.darkmode .footer p {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .faqZ {
+@media only screen and (max-width: 768px) {
+  .faq {
     padding: 2rem 1rem;
-  }
-  .nav {
-        padding: 1.5rem 0.4rem;
-  }
-  .nav__div2 > a {
-        font-size: 1.3rem;
   }
 
   .faq__header h1 {
@@ -419,17 +413,38 @@ body.darkmode .footer p {
   .contact-cta {
     padding: 40px 25px;
   }
+  .theme__choice {
+  	transform: scale(0.85);
+  }
+  .theme__chooice:hover {
+  	transform: scale(0.9);
+  }
+  .nav__div1 button, .nav__div3 a {
+  	transform: scale(0.9);
+  }
 }
 
-@media (max-width: 480px) {
+@media only screen and (max-width: 480px) {
   .faq__header h1 {
     font-size: 1.8rem;
   }
   .nav {
         padding: 1rem 0;
   }
+  .nav__div2 a {
+  	font-size: 1.2rem;
+  }
   .faq__item {
     padding: 15px 20px;
+  }
+  .theme__choice {
+  	transform: scale(0.7);
+  }
+  .theme__choice:hover {
+  	transform: scale(0.75);
+  }
+  .nav__div1 button, .nav__div3 a {
+  	transform: scale(0.8);
   }
 }
 

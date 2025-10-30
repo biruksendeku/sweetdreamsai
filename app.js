@@ -24,7 +24,6 @@ app.use(express.static(publicFolder, {
 	maxAge: '7d', // changed '1y' rather than using cache busting
 	etag: false
 }));
-app.use(express.static(publicFolder));
 
 // MIDDLEWARE SETUP - LONG VERSION
 app.use(
@@ -187,7 +186,8 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-	res.status(500).send('Internal Server Error!');
+	//res.status(500).send('Internal Server Error!');
+	res.status(500).render('500');
 	console.log('Error Message: ', err.message);
 	console.log('Error Stack: ', err.stack);
 });
